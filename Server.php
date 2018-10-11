@@ -2,8 +2,8 @@
 ini_set ( 'display_errors', 1 );
 ini_set ( 'display_startup_errors', 1 );
 error_reporting ( E_ALL );
-$url="http://localhost:8888/wsConciliaciones/Server.php";
-$uri="http://localhost:8888/wsConciliaciones/";
+$url="http://localhost:8888/APISoap/Server.php";
+$uri="http://localhost:8888/APISoap/";
 require_once('myClass.php'); 
     // require_once('WSDLDocument/src/WSDLDocument.php');
     // $wsdl = new WSDLDocument("Conciliaciones",$url,$uri);

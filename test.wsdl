@@ -4,11 +4,11 @@
     xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" 
     xmlns:soap-env="http://schemas.xmlsoap.org/wsdl/soap/" 
     xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-    xmlns:tns="http://localhost:8888/wsConciliaciones/"
-    targetNamespace="http://localhost:8888/wsConciliaciones/"
+    xmlns:tns="http://localhost:8888/APISoap/"
+    targetNamespace="http://localhost:8888/APISoap/"
     >
 	<wsdl:types>
-        <xsd:schema targetNamespace="http://localhost:8888/wsConciliaciones/"/>
+        <xsd:schema targetNamespace="http://localhost:8888/APISoap/"/>
     </wsdl:types>
 
 	<wsdl:message name="invokeServiceRequest">
@@ -80,7 +80,7 @@
 	<soap-env:binding xmlns="http://schemas.xmlsoap.org/wsdl/soap/" style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
 			
 			<wsdl:operation name="invokeService">
-				<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost:8888/wsConciliaciones/Server.php?method=invokeService" style="rpc"/>
+				<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost:8888/APISoap/Server.php?method=invokeService" style="rpc"/>
 					<wsdl:input>
 						<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
 					</wsdl:input>
@@ -90,7 +90,7 @@
 			</wsdl:operation>
 
 			<wsdl:operation name="pre_Conciliacion">
-				<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost:8888/wsConciliaciones/Server.php?method=pre_Conciliacion" style="rpc"/>
+				<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost:8888/APISoap/Server.php?method=pre_Conciliacion" style="rpc"/>
 					<wsdl:input>
 						<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
 					</wsdl:input>
@@ -100,7 +100,7 @@
 			</wsdl:operation>
 
 			<wsdl:operation name="conciliacion">
-				<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost:8888/wsConciliaciones/Server.php?method=conciliacion" style="rpc"/>
+				<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost:8888/APISoap/Server.php?method=conciliacion" style="rpc"/>
 					<wsdl:input>
 						<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
 					</wsdl:input>
@@ -110,7 +110,7 @@
 			</wsdl:operation>
 
 			<wsdl:operation name="ver_conciliacion">
-				<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost:8888/wsConciliaciones/Server.php?method=ver_conciliacion" style="rpc"/>
+				<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost:8888/APISoap/Server.php?method=ver_conciliacion" style="rpc"/>
 					<wsdl:input>
 						<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
 					</wsdl:input>
@@ -125,7 +125,7 @@
 		<wsdl:documentation>Servicios web para el proyecto Conciliaciones y Protocolos DARA 
 		========================== ---- By Beanario Software --- </wsdl:documentation>
 		<wsdl:port name="ConciliacionesPort" binding="tns:ConciliacionesBinding">
-			<soap-env:address location="http://localhost:8888/wsConciliaciones/Server.php"></soap-env:address>
+			<soap-env:address location="http://localhost:8888/APISoap/Server.php"></soap-env:address>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

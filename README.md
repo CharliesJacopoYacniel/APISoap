@@ -18,7 +18,7 @@ El árbol de archivos actualmente es:
     - Client.php
     - myClass.php
     - MyWsdl.wsdl
-    -README.md
+    - README.md
     - Server.php
     - test.wsdl
 
