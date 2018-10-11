@@ -1,7 +1,9 @@
 <?php
 include_once "conexion/crud.php";
 /**
- * Servicios web para el proyecto Conciliaciones y Protocolos DARA ========================== ---- By Beanario Software ---
+ * Servicios web para el proyecto Conciliaciones y Protocolos DARA 
+ * @author  ========================== ---- By Beanario Software --- <c.tejada@beanar.io>
+ * @version 1.0
  */
 class Conciliaciones { 
      /**

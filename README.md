@@ -4,7 +4,7 @@
 
 
 ## Introducción
-Te encuentras en el repositorio pesonal de Charlies Yacniel, aqui esta el codigo de plantilla para la publicación de un API Soap usando php y sus clases nativas:
+Te encuentras en el repositorio personal de **Charlies Yacniel** :bomb: , aqui esta el codigo de plantilla para la publicación de un API Soap usando php y sus clases nativas:
 El árbol de archivos actualmente es:
   - APISoap
     - conexion
