@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" 
+    xmlns:soap-env="http://schemas.xmlsoap.org/wsdl/soap/" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:tns="http://localhost:8888/wsConciliaciones/"
+    targetNamespace="http://localhost:8888/wsConciliaciones/"
+    >
+	<wsdl:types>
+        <xsd:schema targetNamespace="http://localhost:8888/wsConciliaciones/"/>
+    </wsdl:types>
+
+	<wsdl:message name="invokeServiceRequest">
+		<wsdl:part name="userId" type="xsd:string"/>
+        <wsdl:part name="password" type="xsd:string"/>
+        <wsdl:part name="service" type="xsd:string"/>
+	</wsdl:message>
+	<wsdl:message name="invokeServiceResponse">
+		<wsdl:part name="invokeServiceReturn" type="xsd:string"/>
+	</wsdl:message>
+	<wsdl:message name="pre_ConciliacionRequest">
+		<wsdl:part name="codigoBancario" type="xsd:string"/>
+        <wsdl:part name="fechaPago" type="xsd:string"/>
+	</wsdl:message>
+	<wsdl:message name="pre_ConciliacionResponse">
+		<wsdl:part name="pre_ConciliacionReturn" type="soap-enc:array"/>
+	</wsdl:message>
+
+	<wsdl:message name="conciliacionRequest">
+		<wsdl:part name="codigoBancarioTGR" type="xsd:string"/>
+        <wsdl:part name="fechaPago" type="xsd:string"/>
+        <wsdl:part name="totalOperaciones" type="xsd:float"/>
+        <wsdl:part name="totalTransferido" type="xsd:float"/>
+        <wsdl:part name="OPERACIONES" type="soap-enc:array"/>
+        <wsdl:part name="OPERACION" type="soap-enc:array"/>
+        <wsdl:part name="idLiqExterno" type="xsd:string"/>
+        <wsdl:part name="importePagado" type="xsd:float"/>								
+	</wsdl:message>
+	<wsdl:message name="conciliacionResponse">
+		<wsdl:part name="conciliacionReturn" type="soap-enc:array"/>
+	</wsdl:message>
+
+	<wsdl:message name="ver_conciliacionRequest">
+		<wsdl:part name="codigoBancarioTGR" type="xsd:string"/>
+        <wsdl:part name="fechaPago" type="xsd:string"/>
+        <wsdl:part name="idConciliacion" type="xsd:string"/>
+	</wsdl:message>
+	<wsdl:message name="ver_conciliacionResponse">
+		<wsdl:part name="ver_conciliacionReturn" type="soap-enc:array"/>
+	</wsdl:message>
+
+	<wsdl:portType name="ConciliacionesPortType">
+		<wsdl:operation name="invokeService">
+			<wsdl:documentation>1.1 METODO INVOKESERVICE Descripción: Este método se utilizará para realizar la ejecución de los servicios de conciliación bancaria: - Pre-conciliación (PRE-CON) - Conciliación (RESU-PAGO) y - Verificación de Conciliación (VER-CON):</wsdl:documentation>
+			<wsdl:input message="tns:invokeServiceRequest"/>
+            <wsdl:output message="tns:invokeServiceResponse"/>
+		</wsdl:operation>
+
+		<wsdl:operation name="pre_Conciliacion">
+			<wsdl:documentation>1.2 MÉTODO PRE-CONCILIACIÓN BANCARIA (PRE-CON) Descripción: Este método se utilizará para realizar la Pre-conciliación bancaria; el método se encarga de devolver las liquidaciones que fueron pagadas durante el día ingresado.</wsdl:documentation>
+			<wsdl:input message="tns:pre_ConciliacionRequest"/>
+			<wsdl:output message="tns:pre_ConciliacionResponse"/>
+		</wsdl:operation>
+
+		<wsdl:operation name="conciliacion">
+			<wsdl:documentation>1.3 MÉTODO DE CONCILIACIÓN BANCARIA O RESUMEN PAGO (RESU-PAGO) Este método se utilizará para conciliar las operaciones, de un determinado día de operación. Este método devuelve el archivo de PA01.</wsdl:documentation>
+			<wsdl:input message="tns:conciliacionRequest"/>
+			<wsdl:output message="tns:conciliacionResponse"/>
+		</wsdl:operation>
+
+		<wsdl:operation name="ver_conciliacion">
+			<wsdl:documentation>1.4 MÉTODO DE VERIFICACIÓN DE CONCILIACIÓN BANCARIA (VER-CON) Descripción: Este método se utilizará para verificar que la conciliación bancaria se halla realizado de manera satisfactoria.</wsdl:documentation>
+			<wsdl:input message="tns:ver_conciliacionRequest"/>
+			<wsdl:output message="tns:ver_conciliacionResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="ConciliacionesBinding" type="tns:ConciliacionesPortType">
+	<soap-env:binding xmlns="http://schemas.xmlsoap.org/wsdl/soap/" style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+			
+			<wsdl:operation name="invokeService">
+				<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost:8888/wsConciliaciones/Server.php?method=invokeService" style="rpc"/>
+					<wsdl:input>
+						<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+					</wsdl:input>
+					<wsdl:output>
+						<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+					</wsdl:output>
+			</wsdl:operation>
+
+			<wsdl:operation name="pre_Conciliacion">
+				<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost:8888/wsConciliaciones/Server.php?method=pre_Conciliacion" style="rpc"/>
+					<wsdl:input>
+						<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+					</wsdl:input>
+					<wsdl:output>
+						<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+					</wsdl:output>
+			</wsdl:operation>
+
+			<wsdl:operation name="conciliacion">
+				<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost:8888/wsConciliaciones/Server.php?method=conciliacion" style="rpc"/>
+					<wsdl:input>
+						<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+					</wsdl:input>
+					<wsdl:output>
+						<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+					</wsdl:output>
+			</wsdl:operation>
+
+			<wsdl:operation name="ver_conciliacion">
+				<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost:8888/wsConciliaciones/Server.php?method=ver_conciliacion" style="rpc"/>
+					<wsdl:input>
+						<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+					</wsdl:input>
+					<wsdl:output>
+						<soap-env:body
+							xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+					</wsdl:output>
+			</wsdl:operation>
+
+	</wsdl:binding>
+	<wsdl:service name="Conciliaciones">
+		<wsdl:documentation>Servicios web para el proyecto Conciliaciones y Protocolos DARA 
+		========================== ---- By Beanario Software --- </wsdl:documentation>
+		<wsdl:port name="ConciliacionesPort" binding="tns:ConciliacionesBinding">
+			<soap-env:address location="http://localhost:8888/wsConciliaciones/Server.php"></soap-env:address>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
