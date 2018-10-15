@@ -42,7 +42,7 @@ Para la implementación de la clases nativas de php es necesario antes configura
 
 ![SAOP component](https://i.stack.imgur.com/YWDtj.jpg)
 
-Imagen 1: captura de la información de php en el apartado "SOAP"
+Imagen 1: Captura de la información de php en el apartado "SOAP"
  
 
 ## Instalación
@@ -54,7 +54,7 @@ Copiar los archivos del proyecto en la carpeta htdocs
 
 Imagen 1: Copiar el contenido en la carpeta htdocs.
 
-ingresar a la dirección http://localhost:8888/apiSoap/server.php?wsdl   par aver el server en producción
+ingresar a la dirección http://localhost:8888/apiSoap/server.php?wsdl   para ver el server en producción
 ingresar a la dirección http://localhost:8888/APISoap/Client.php  para usar un  cliente del server en producción.
 
 ## Construido con
@@ -69,12 +69,12 @@ Con este simple código puede generar un documento WSDL para su servicio web.
 Para las versiones disponibles, vea las etiquetas en este repositorio .
 
 ## Autores
-**Charlies Yacniel** - Trabajo inicial - [CharliesJacopoYacniel](https://www.facebook.com/CharliesYacniel)
+:studio_microphone: [**Charlies Yacniel**](https://www.facebook.com/CharliesYacniel) :studio_microphone: - Trabajo inicial -
 Vea también la lista de [colaboradores](https://github.com/CharliesJacopoYacniel/APISoap/graphs/contributors) que participaron en este proyecto.
 
 License
 ----
-Este proyecto es FREE lo encuentras en el repositorio personal de :studio_microphone: **Charlies Yacniel** :studio_microphone: ,espero sea de ayuda.
+Este proyecto es libre de uso.
 
 ```Text
       ___           ___           ___           ___                                     ___           ___              
